@@ -11,8 +11,8 @@ if (digitA != 0)
     int digitB = Convert.ToInt32(Console.ReadLine());
     if (digitB > 0 && digitB % 1 == 0)
     {
-        int stepen = Stepen(digitA, digitB);
-        Console.WriteLine($"Ответ: A в степени В -> {stepen}");
+        int expon = Expon(digitA, digitB);
+        Console.WriteLine($"Ответ: A в степени В -> {expon}");
     }
     else
     {
@@ -24,7 +24,7 @@ else
     Console.WriteLine("Некорректный ввод. Число A не равно 0");
 }
 
-int Stepen(int numA, int numB)
+int Expon(int numA, int numB)
 {
     int result = 1;
     for (int i = 1; i <= numB; i++)
