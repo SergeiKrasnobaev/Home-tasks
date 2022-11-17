@@ -16,11 +16,13 @@ int[] FillArray(int num)
 }
 void PrintArray(int[] array)
 {
+    Console.Write("[");
     for (int i = 0; i < array.Length; i++)
     {
         if (i < array.Length - 1) Console.Write($"{array[i]},");
         else Console.Write($"{array[i]}");
     }
+    Console.Write("]");
 }
 int DigitMoreNullArray(int[] array)
 {
@@ -34,10 +36,10 @@ int DigitMoreNullArray(int[] array)
     }
     return count;
 }
-int[] f = FillArray(n);
+int[] fillArray = FillArray(n);
 Console.WriteLine();
-PrintArray(f);
-int d = DigitMoreNullArray(f);
+PrintArray(fillArray);
+int digitMoreNullArray = DigitMoreNullArray(fillArray);
 Console.WriteLine();
-Console.WriteLine($"-> {d}");
+Console.WriteLine($"Чисел в массиве > 0 : {digitMoreNullArray}");
 
