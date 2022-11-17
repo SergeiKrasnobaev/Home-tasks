@@ -3,10 +3,11 @@
 
 Console.WriteLine("Введите количество элементов в массиве: ");
 int n = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Заполните массив числами через Enter: ");
 int[] FillArray(int num)
 {
     int[] array = new int[num];
-    Console.WriteLine("Заполните массив числами через Enter: ");
+    // Console.WriteLine("Заполните массив числами через Enter: ");
     for (int i = 0; i < array.Length; i++)
     {
         int digit = Convert.ToInt32(Console.ReadLine());
