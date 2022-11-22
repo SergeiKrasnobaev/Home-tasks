@@ -1,10 +1,6 @@
 ﻿// Задача 52. Задайте двумерный массив из целых чисел.
 //  Найдите среднее арифметическое элементов в каждом столбце.
-// Например, задан массив:
-// 1 4 7 2
-// 5 9 2 3
-// 8 4 2 4
-// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+
 
 int[,] CreateMatrix(int rows, int columns, int min, int max)
 {
@@ -14,37 +10,54 @@ int[,] CreateMatrix(int rows, int columns, int min, int max)
     {
         for (int j = 0; j < createMatrix.GetLength(1); j++)
         {
-            createMatrix[i, j] = rnd.Next() * rnd.Next(-10, 10);
+            createMatrix[i, j] = rnd.Next(-10, 10);
         }
     }
     return createMatrix;
 }
-
-int[] SumElementsColumns(int[,] createMatrix)
+void PrintMatrix(int[,] matrix)
 {
-    int[] sumElements = new int[5];
-    int sum = 0;
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            if (j < matrix.GetLength(1) - 1) Console.Write($"{matrix[i, j],5}   ");
+            else Console.Write($"{matrix[i, j],5} ");
+        }
+        Console.WriteLine("");
+    }
+}
+double[] MiddleMathElementsColumns(int[,] createMatrix)
+{
+    int count = 0;
+    double[] middleMathElementsColumn = new double[createMatrix.GetLength(1)];
     for (int j = 0; j < createMatrix.GetLength(1); j++)
     {
+        double sum = 0;
         for (int i = 0; i < createMatrix.GetLength(0); i++)
         {
             sum = sum + createMatrix[i, j];
-            sumElements[5] = sum;
         }
+        middleMathElementsColumn[count] = Math.Round(sum / createMatrix.GetLength(0), 2);
+        count++;
     }
-    return sumElements;
+    return middleMathElementsColumn;
 }
 
-void PrintSumElements(int[] sumElements)
+void PrintArray(double[] array)
 {
-    Console.Write("[");
-    for (int i = 0; i < sumElements.Length; i++)
+    Console.Write("");
+    for (int i = 0; i < array.Length; i++)
     {
-        if (i < sumElements.Length - 1) Console.Write($"{sumElements[i]} , ");
-        else Console.Write($"{sumElements[i]}");
+        if (i < array.Length - 1) Console.Write($"{array[i]}| ");
+        else Console.Write($"{array[i]}  ");
     }
-    Console.Write("]");
+    Console.Write("");
 }
 
-int [,] createMatrix = CreateMatrix (3, 3, -10, 10);
-int [] SumElementsColumns()
+int[,] createMatrix = CreateMatrix(3, 3, -10, 10);
+PrintMatrix(createMatrix);
+double[] middleSumColumnsArray = MiddleMathElementsColumns(createMatrix);
+Console.Write($"Среднее арифметическое значение элементов каждого столбца: ");
+PrintArray(middleSumColumnsArray);
+

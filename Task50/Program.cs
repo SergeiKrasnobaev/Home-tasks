@@ -19,7 +19,7 @@ int[,] CreateMatrix(int rows, int columns, int min, int max)
     }
     return matrix;
 }
-int matrixElement(int[,] matrix, int a = 0, int b = 0)
+int matrixElementValue(int[,] matrix, int a = 0, int b = 0)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
@@ -34,7 +34,6 @@ void PrintMatrix(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        // Console.Write("[");
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
             if (j < matrix.GetLength(1) - 1) Console.Write($"{matrix[i, j],3}   ");
@@ -43,17 +42,16 @@ void PrintMatrix(int[,] matrix)
         Console.WriteLine("");
     }
 }
-
 int[,] createMatrix = CreateMatrix(3, 3, -10, 10);
 PrintMatrix(createMatrix);
 if (m < createMatrix.GetLength(0) && n < createMatrix.GetLength(1))
 {
-    int mElement = matrixElement(createMatrix, m, n);
-    Console.Write($" элемент на позиции [{m},{n}] : {mElement}");
+    int mElementValue = matrixElementValue(createMatrix, m, n);
+    Console.Write($" Элемент на позиции [{m},{n}] : {mElementValue}");
 }
 else
 {
-    Console.Write($"элемент на позиции [{m},{n}] не найден");
+    Console.Write($"Элемент на позиции [{m},{n}] не найден");
 }
 
 
