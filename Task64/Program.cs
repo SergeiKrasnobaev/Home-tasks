@@ -8,12 +8,11 @@
 
 Console.WriteLine("Введите натуральное число: ");
 int num = Convert.ToInt32(Console.ReadLine());
-void NaturalNumbers(int number) 
+void NaturalNumbers(int number)
 {
     Console.Write($"{number} ");
     if (number == 1) return;
-    
     NaturalNumbers(number - 1);
-    
+
 }
 NaturalNumbers(num);
